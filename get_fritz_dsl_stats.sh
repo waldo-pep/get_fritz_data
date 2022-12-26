@@ -3,24 +3,33 @@
 # 
 #
 # read data from frtiz box and write it in a csv file
+# tested and developed with my fritzbox 7390 with FRITZ!OS: 06.87!
 #
-# example: get_fritz_data.sh
+# example call: get_fritz_data.sh
 
 # based on ct script "fritz_docsis_2_influx_lines.sh"
 # ---------------------------------------------
-# please define your settings for your fritzbox
+# please define your settings for your fritzbox in file "my.credentials"
 # ---------------------------------------------
-source my.credentials
-
-path="/home/otti/get_fritz_data"
-
+#########################################################################
 #
 # nothing to be changed from here
 #
 
-if [ -z "$user" ] || [ -z "$pass" ] || [ -z "$fritzbox" ]; then
-  echo "no credetials available, exit!"
+# get absolute (working) path
+path=`dirname $(realpath $0)`
+echo "$path/my.credentials"
+if [ -f "$path/my.credentials" ]; then 
+  source $path/my.credentials
+else
+  echo "no credential file, exit!"
   exit 1
+fi
+
+# check if all credentials available
+if [ -z "$user" ] || [ -z "$pass" ] || [ -z "$fritzbox" ]; then
+  echo "no credentials available, exit!"
+  exit 2
 fi
 
 # --------------------
@@ -60,6 +69,10 @@ sid=$(cat $sidfile)
 #npx prettier --write dsl_stats_graph.html 
 last_request="&no_sidrenew"
 
+###################################################################
+# get page 'Internet->Online-Monitor' and then card 'Online-Zähler'
+# extract counter from today and put it in file 'fritzBox_net.csv'
+###################################################################
 response=$(curl -s "http://$fritzbox/internet/inetstat_counter.lua" -d "xhr=1&sid=$sid&lang=de&page=docInfo&xhrId=all$last_request")
 echo "$response" > inetstat_counter.html
 #npx prettier --write inetstat_counter.html 
