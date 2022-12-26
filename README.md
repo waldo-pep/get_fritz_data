@@ -8,6 +8,9 @@ example call: get_fritz_data.sh
 --> based on ct script "fritz_docsis_2_influx_lines.sh" by c't <--\
 https://www.heise.de/ratgeber/Kabelfritz-Monitor-Die-Leistungsguete-von-Fritzboxen-mit-dem-Raspi-ueberwachen-7240786.html
 
+--> great side with fritzbox url's \
+https://wiert.me/2018/11/27/fritzbox-lua-links-on-my-research-list/#more-43491
+
 
 # work in progress, hopefully more comes ;)
 
