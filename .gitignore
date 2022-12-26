@@ -1,6 +1,5 @@
 
 *.credentials
-my.credentials
 *.sid
 *.csv
 *.html
