@@ -13,4 +13,4 @@ https://www.heise.de/ratgeber/Kabelfritz-Monitor-Die-Leistungsguete-von-Fritzbox
 
 note: To prevent your access data from being accidentally uploaded, 
       use the following command on the command line:\
-_____git update-index --assume-unchanged my.credentials
+      git update-index --assume-unchanged my.credentials
