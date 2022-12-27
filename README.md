@@ -12,8 +12,8 @@ https://www.heise.de/ratgeber/Kabelfritz-Monitor-Die-Leistungsguete-von-Fritzbox
 https://wiert.me/2018/11/27/fritzbox-lua-links-on-my-research-list/#more-43491
 
 
-# work in progress, hopefully more comes ;)
+# work in progress, hopefully comes more;)
 
 note: To prevent your access data from being accidentally uploaded, 
       use the following command on the command line:\
-      git update-index --assume-unchanged my.credentials
+&nbsp;git update-index --assume-unchanged my.credentials

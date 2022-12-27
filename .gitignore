@@ -1,5 +1,12 @@
 
+# ignore files
 *.credentials
 *.sid
 *.csv
 *.html
+
+# ignore some local folders
+test/*.*
+test/*
+org/*.*
+org/*
