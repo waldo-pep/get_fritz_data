@@ -16,9 +16,9 @@
 # nothing to be changed from here
 #
 
-# get absolute (working) path
+# get absolute path of script (should be the working dir)
 path=`dirname $(realpath $0)`
-echo "$path/my.credentials"
+#echo "$path/my.credentials"
 if [ -f "$path/my.credentials" ]; then 
   source $path/my.credentials
 else
@@ -67,7 +67,7 @@ today_send=$(cat inetstat_counter.html | grep -m 1 "Online-Zeit (hh:mm)" | cut -
 today_received=$(cat inetstat_counter.html | grep -m 1 "Online-Zeit (hh:mm)" | cut -d ">" -f 8 | cut -d "<" -f 1)
 #echo "$today_online, $today_sum, $today_send, $today_received"
 if [ -f "$path/fritzBox_net.csv" ]; then 
-  echo "$(date '+%Y-%m-%d');$(date '+%T');$today_online,$today_sum,$today_send,$today_received" >> "$path/fritzBox_net.csv"
+  echo "$(date '+%Y-%m-%d');$(date '+%T');$today_online;$today_sum;$today_send;$today_received" >> "$path/fritzBox_net.csv"
 else 
   echo "Datum;Zeit;Online-Zeit (hh:mm);Datenvolumen gesamt(MB);Datenvolumen gesendet(MB);Datenvolumen empfangen(MB)" >> "$path/fritzBox_net.csv"
   echo "$(date '+%Y-%m-%d');$(date '+%T');$today_online;$today_sum;$today_send;$today_received" >> "$path/fritzBox_net.csv"
